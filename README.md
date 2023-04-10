@@ -8,3 +8,19 @@
 5. Evaluating the Model: After training, evaluate the performance of the model using a test set. This will help you determine how well the model is performing and identify any areas where it can be improved.
 6. Tuning the Model: If necessary, adjust the parameters of the machine learning algorithm and retrain the model to improve its performance.
 7. Deploying the Model: Once the model has been trained and tested, deploy it into production to make predictions on new data.
+
+
+#Steps to convert bit-perfect database from dat.gz to CSV
+'''
+POSITION BlankOXToPosition(theBlankOX)
+BlankOX *theBlankOX;
+{
+	int i;
+	POSITION position = 0;
+
+	for(i = 0; i < BOARDSIZE; i++)
+		position += g3Array[i] * (int)theBlankOX[i]; /* was (int)position... */
+
+	return(position);
+}
+'''
