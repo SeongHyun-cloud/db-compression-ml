@@ -9,9 +9,21 @@
 6. Tuning the Model: If necessary, adjust the parameters of the machine learning algorithm and retrain the model to improve its performance.
 7. Deploying the Model: Once the model has been trained and tested, deploy it into production to make predictions on new data.
 
+<br />
 
-#Steps to convert bit-perfect database from dat.gz to CSV
-'''
+## [What is bit-perfect database](https://nyc.cs.berkeley.edu/wiki/Bit-Perfect_DB)
+
+#Example: <br/>
+A slice with the following slots<br/>
+And with the respective sizes in bits<br/>
+| VALUE | VISITED | MEX | REMOTENESS |
+|-------|-------|-------|-------|
+| 2 | 1 | 5  |     8      |
+
+#Steps to convert bit-perfect database from dat.gz to CSV <br />
+
+Here, the BlankOXToPosiiton function is a unhash function which is value in the dpdb
+```c
 POSITION BlankOXToPosition(theBlankOX)
 BlankOX *theBlankOX;
 {
@@ -23,4 +35,4 @@ BlankOX *theBlankOX;
 
 	return(position);
 }
-'''
+```
