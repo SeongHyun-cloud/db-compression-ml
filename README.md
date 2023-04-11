@@ -22,6 +22,8 @@ And with the respective sizes in bits<br/>
 
 #Steps to convert bit-perfect database from dat.gz to CSV <br />
 
+I've tried panadas and numpy, not sure how to convert bytes files into string itself. Unreadable
+
 Here, the BlankOXToPosiiton function is a unhash function which is value in the dpdb
 ```c
 POSITION BlankOXToPosition(theBlankOX)
