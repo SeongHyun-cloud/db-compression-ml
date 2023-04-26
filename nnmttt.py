@@ -6,10 +6,10 @@ import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 from sklearn.model_selection import train_test_split
 
-# Step 1: Load the dataset
+#Load the dataset
 data = pd.read_csv('all_positions.csv')
 
-# Step 2: Preprocess the data
+#Preprocess the data
 def preprocess_data(data):
     # Filter out 'Undecided' positions
     data = data[data['winner'] != 'U']
@@ -44,7 +44,7 @@ def preprocess_data(data):
 
 X_train, X_test, y_train, y_test = preprocess_data(data)
 
-# Step 3: Create a neural network model: 27 x 64 x 32 x 3
+#Create a neural network model: 27 x 64 x 32 x 3
 class TicTacToeNN(nn.Module):
     def __init__(self):
         super(TicTacToeNN, self).__init__()
@@ -60,7 +60,7 @@ class TicTacToeNN(nn.Module):
 
 model = TicTacToeNN()
 
-# Step 4: Train the model
+#Train the model
 class TicTacToeDataset(Dataset):
     def __init__(self, X, y):
         self.X = X
@@ -90,7 +90,7 @@ for epoch in range(num_epochs):
 
     print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item()}")
 
-# Step 5: Evaluate the model
+# Evaluate the model
 test_dataset = TicTacToeDataset(X_test, y_test)
 test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
 
@@ -137,10 +137,15 @@ def test_position(model, position):
         winner = label_to_winner(predicted_label.item())
 
     return winner
-
-position = "  O" \
-           " X " \
-           "OX "
-
-predicted_winner = test_position(model, position)
-print(f"Predicted winner for position:\n{position}\nWinner: {predicted_winner}")
+"""
+position = "XOO" \
+           "O X" \
+           "XOX"
+"""
+position = input("enter position:")
+while position != "":
+    if len(position) != 9:
+        print("Incorrect positon number")
+    predicted_winner = test_position(model, position)
+    print(f"Predicted winner for position:\n{position}\nWinner: {predicted_winner}")
+    position = input("enter position:")
